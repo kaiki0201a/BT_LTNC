@@ -8,7 +8,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    #  Bài 4: Định nghĩa ma trận hệ điều hành
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    # Chạy trên hệ điều hành tương ứng từ ma trận
+    runs-on: ${{ matrix.os}}
 
     steps:
       - name: Checkout code
