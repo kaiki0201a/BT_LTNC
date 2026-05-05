@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.File;
 
 public class OSPathTest {
-"""
+
     @Test
     void testFileAccessWithHardcodedPath() {
         // Sử dụng dấu "/" - Chạy tốt trên Mac
@@ -17,6 +17,5 @@ public class OSPathTest {
         File file = new File(path);
         System.out.println("Đang kiểm tra file tại: " + file.getAbsolutePath());
     }
-"""
 
 }
