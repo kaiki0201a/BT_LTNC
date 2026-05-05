@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 public class OSPathTest {
 
+"""
     @Test
     void testFileAccessWithHardcodedPath() {
         // 1. Để hệ thống tự tạo đường dẫn dựa trên cấu trúc folder
@@ -20,6 +21,7 @@ public class OSPathTest {
         assertTrue(realPath.contains("/"),
                 "Lỗi: Đường dẫn hệ thống không sử dụng dấu gạch chéo Unix! Thực tế là: " + realPath);
     }
+"""
 // Sau khi sửa path
     @Test
     void testFileAccessCrossPlatform() {
