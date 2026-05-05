@@ -10,6 +10,7 @@ jobs:
   build:
     #  Bài 4: Định nghĩa ma trận hệ điều hành
     strategy:
+      fail-fast: false;
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     # Chạy trên hệ điều hành tương ứng từ ma trận
