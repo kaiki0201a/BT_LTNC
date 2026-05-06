@@ -34,12 +34,11 @@ jobs:
 
       # Bai 7.
       - name: Run Checkstyle
+        if: runner.os == 'Linux' # THÊM DÒNG NÀY VÀO ĐÂY
         uses: dbelyaev/action-checkstyle@master
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            level: 'warning' # Mức độ cảnh báo
-            # Nếu em có file config riêng thì thêm dòng dưới, nếu không nó dùng mặc định (sun_checks.xml)
-            # checkstyle_config: google_checks.xml
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          level: 'warning'
 
       # Bước dành cho Bài 1: Kiểm tra Dependency & Unit Test
       - name: Verify Bai 1
