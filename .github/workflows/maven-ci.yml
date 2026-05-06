@@ -4,10 +4,15 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" ] # Trigger khi có PR hướng vào nhánh main
 
 jobs:
   build:
+    # Bai 7
+    permissions:
+      pull-requests: write # Cho phép bot ghi bình luận vào PR
+      contents: read
+
     #  Bài 4: Định nghĩa ma trận hệ điều hành
     strategy:
       fail-fast: false
@@ -20,12 +25,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 25
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '25'
+          java-version: '21'
           distribution: 'temurin'
           cache: 'maven'    #Bai 6
+
+      # Bai 7.
+      - name: Run Checkstyle
+        if: runner.os == 'Linux' # THÊM DÒNG NÀY VÀO ĐÂY
+        uses: dbelyaev/action-checkstyle@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          level: 'warning'
 
       # Bước dành cho Bài 1: Kiểm tra Dependency & Unit Test
       - name: Verify Bai 1
