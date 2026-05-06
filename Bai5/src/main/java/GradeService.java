@@ -1,5 +1,4 @@
 public class GradeService {
-    double diem_SO;  // cố tình viết sai
     public String getGrade(double score) {
         if (score < 0 || score > 10) {
             return "Invalid"; // Nhánh 1
