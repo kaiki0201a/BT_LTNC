@@ -48,3 +48,14 @@ jobs:
         with:
           name: binary-package-bai3
           path: Bai3/target/*.jar
+      # Bước cho Bài 5: Chạy Maven để JaCoCo sinh báo cáo
+      - name: Build and Test Bai 5
+        working-directory: ./Bai5
+        run: mvn clean verify
+
+      # Tải báo cáo lên GitHub Artifacts để giảng viên kiểm tra
+      - name: Upload JaCoCo Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report-bai5
+          path: Bai5/target/site/jacoco/
