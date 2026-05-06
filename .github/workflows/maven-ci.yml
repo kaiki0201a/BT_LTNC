@@ -25,7 +25,7 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          cache: 'maven'
+          cache: 'maven'    #Bai 6
 
       # Bước dành cho Bài 1: Kiểm tra Dependency & Unit Test
       - name: Verify Bai 1
